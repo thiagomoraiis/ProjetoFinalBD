@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Bem vindo ao nosso primeiro app</h1>
+
+{% for post in posts %}
+
+<a href="{{ url_for('post', post_id=post['id']) }}">
+
+<h2>{{ post['post_name'] }}</h2>
+
+</a>
+
+<span class="badge bg-primary">{{ post['owner'] }}</span>
+
+<a href="{{ url_for('edit', id=post['id']) }}">
+
+    <span class="badge bg-secondary">Edit</span>
+    
+    </a>
+
+<hr>
+
+{% endfor %}
+
+{% endblock %}
